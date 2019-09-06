@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Activity -->
+    <dimen name="activity_margin">24dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_translucent_padding">76dp</dimen>
+
+    <!-- Navigarion Menu -->
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+
+    <!-- Fragment -->
+    <dimen name="fragment_padding">8dp</dimen>
+
+</resources>
