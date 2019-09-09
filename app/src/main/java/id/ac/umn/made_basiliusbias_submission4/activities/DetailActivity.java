@@ -89,10 +89,10 @@ public class DetailActivity extends LangApp {
         }
 
         // Change Activity Page UI Toolbar
-        if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // Change Toolbar Title
-        if (getSupportActionBar() != null) getSupportActionBar().setTitle(activity_title + data_id);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(activity_title + data_id);
+        }
 
         // Show Loading Animation
         ImageView loading_image = findViewById(R.id.loading_image);

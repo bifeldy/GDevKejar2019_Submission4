@@ -23,10 +23,10 @@ public class AboutActivity extends LangApp {
         setContentView(R.layout.activity_about);
 
         // Change Activity Page UI Toolbar
-        if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // Change Toolbar Title
-        if (getSupportActionBar() != null) getSupportActionBar().setTitle(R.string.title_activity_about);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.title_activity_about);
+        }
 
         // Find UI Object
         ImageView aboutImage = findViewById(R.id.about_image);

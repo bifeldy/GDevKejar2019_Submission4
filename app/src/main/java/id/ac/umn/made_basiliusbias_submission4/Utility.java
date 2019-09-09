@@ -11,7 +11,6 @@ import android.support.v7.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.*;
 
 import java.io.File;
@@ -102,51 +101,48 @@ public class Utility {
 
         // Check If Keyboard Is Opened Or Not
         rootView.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
+                () -> {
 
-                        // Rectangle
-                        Rect r = new Rect();
-                        rootView.getWindowVisibleDisplayFrame(r);
-                        int screenHeight = rootView.getRootView().getHeight();
+                    // Rectangle
+                    Rect r = new Rect();
+                    rootView.getWindowVisibleDisplayFrame(r);
+                    int screenHeight = rootView.getRootView().getHeight();
 
-                        // r.bottom is the position above soft keypad or device button.
-                        // If keypad is shown, the r.bottom is smaller than that before.
-                        int keypadHeight = screenHeight - r.bottom;
+                    // r.bottom is the position above soft keypad or device button.
+                    // If keypad is shown, the r.bottom is smaller than that before.
+                    int keypadHeight = screenHeight - r.bottom;
 
-                        // 0.15 ratio is perhaps enough to determine keypad height.
-                        if (keypadHeight > screenHeight * 0.15) {
+                    // 0.15 ratio is perhaps enough to determine keypad height.
+                    if (keypadHeight > screenHeight * 0.15) {
 
-                            // Keyboard Opened
-                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.MATCH_PARENT,
-                                    LinearLayout.LayoutParams.MATCH_PARENT,
-                                    Gravity.NO_GRAVITY
+                        // Keyboard Opened
+                        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                Gravity.NO_GRAVITY
 
-                            );
-                            params.setMargins(0, 144, 0, 0);
-                            rootView.setLayoutParams(params);
+                        );
+                        params.setMargins(0, 144, 0, 0);
+                        rootView.setLayoutParams(params);
 
-                            // Hide Logo & Title
-                            logo.setVisibility(View.GONE);
-                            title.setVisibility(View.GONE);
-                        }
-                        else {
+                        // Hide Logo & Title
+                        logo.setVisibility(View.GONE);
+                        title.setVisibility(View.GONE);
+                    }
+                    else {
 
-                            // Keyboard Closed
-                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.MATCH_PARENT,
-                                    LinearLayout.LayoutParams.MATCH_PARENT,
-                                    Gravity.CENTER
-                            );
-                            params.setMargins(0, 0, 0, 0);
-                            rootView.setLayoutParams(params);
+                        // Keyboard Closed
+                        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.MATCH_PARENT,
+                                Gravity.CENTER
+                        );
+                        params.setMargins(0, 0, 0, 0);
+                        rootView.setLayoutParams(params);
 
-                            // Show Logo & Title
-                            logo.setVisibility(View.VISIBLE);
-                            title.setVisibility(View.VISIBLE);
-                        }
+                        // Show Logo & Title
+                        logo.setVisibility(View.VISIBLE);
+                        title.setVisibility(View.VISIBLE);
                     }
                 }
         );

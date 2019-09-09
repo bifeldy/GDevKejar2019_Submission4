@@ -18,10 +18,10 @@ public class SettingsActivity extends LangApp {
         setContentView(R.layout.activity_settings);
 
         // Change Activity Page UI Toolbar
-        if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // Change Toolbar Title
-        if (getSupportActionBar() != null) getSupportActionBar().setTitle(R.string.title_activity_settings);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.title_activity_settings);
+        }
 
         // Inflate Fragment Settings
         FragmentManager fragmentManager = getSupportFragmentManager();
